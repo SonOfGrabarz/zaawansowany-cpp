@@ -1,12 +1,12 @@
-// template <typename T, typename U>
-template <typename T>
+#include <cstddef>
+#include <iostream>
+
+template <typename T, std::size_t N>
 class Wektor{
 public:
-    typedef T value_type;
-    // U size;
-    Wektor(T argX, T argY, T argZ)
-    : x(argX), y(argY), z(argZ)
-    { }
+    T &operator[]( std::size_t i ){
+        return tab1[i];
+    }
 
-    T x, y, z;
+    T tab1[N];
 };

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "wektor.h"
 
 // zadanie 1
@@ -34,8 +33,12 @@ int main()
     std::cout << add2(a, b, [](auto a, auto b){return a + b;}) << '\n';
 
     std::cout << "ZADANIE3" << '\n';
-    Wektor<int> A(0, -10, 0);
-    std::cout << "A(" << A.x << "," << A.y << "," << A.z << ")\n";
+    Wektor<int,10> A;
+ 
+    for ( int i=0; i<10; ++i )
+    {
+       std::cout << "A[" << i << "]=" << A[i] << std::endl;
+    }
 
     return 0;
 }
