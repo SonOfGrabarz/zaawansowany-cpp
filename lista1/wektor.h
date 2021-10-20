@@ -1,12 +1,23 @@
 #include <cstddef>
 #include <iostream>
 
-template <typename T, std::size_t N>
+template <typename value_type, std::size_t s>
 class Wektor{
-public:
-    T &operator[]( std::size_t i ){
-        return tab1[i];
+private:
+    value_type tab[s];
+
+public: 
+    Wektor(){
+        for( std::size_t i = 0; i < s; i++ ){
+            tab[i] = 0;
+        }
     }
 
-    T tab1[N];
+    std::size_t size() const{
+        return s;
+    }
+
+    value_type& operator[]( std::size_t n ){
+        return tab[n];
+    }
 };

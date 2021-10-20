@@ -33,11 +33,9 @@ int main()
     std::cout << add2(a, b, [](auto a, auto b){return a + b;}) << '\n';
 
     std::cout << "ZADANIE3" << '\n';
-    Wektor<int,10> A;
- 
-    for ( int i=0; i<10; ++i )
-    {
-       std::cout << "A[" << i << "]=" << A[i] << std::endl;
+    Wektor<float, 3> wektor;
+    for ( int i = 0; i < 3; i++ ){
+        std::cout << wektor[i] << '\n';
     }
 
     return 0;
