@@ -26,17 +26,34 @@ int main()
     std::cout << add1(3, 4) << '\n';
     std::cout << add1("Michal ", "Szul") << '\n';
 
+    std::cout << '\n';
+
     std::cout << "ZADANIE2" << '\n';
     std::cout << add2(3, 3.14, [](auto x, auto y){return x + y;}) << '\n';
     std::string a = "Michal ";
     std::string b = "Szul";
     std::cout << add2(a, b, [](auto a, auto b){return a + b;}) << '\n';
 
+    std::cout << '\n';
+
     std::cout << "ZADANIE3" << '\n';
-    Wektor<float, 3> wektor;
+    Wektor<int, 3> wektorInt;
     for ( int i = 0; i < 3; i++ ){
-        std::cout << wektor[i] << '\n';
+        std::cout << wektorInt[i] << '\n';
     }
+
+    Wektor<float, 3> wektorFloat;
+    for (int i = 0; i < 5; i++){
+        std::cout << wektorFloat[i] << '\n';
+    }
+
+    std::cout << '\n';
+
+    std::cout << "ZADANIE4" << '\n';
+    const std::vector<float> m = {1.0f, 2.0f, 3.0f};
+    const std::vector<float> n = {1.0f, 1.0f};
+
+    std::cout << m * wektorInt << '\n';
 
     return 0;
 }
