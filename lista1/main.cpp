@@ -1,15 +1,8 @@
 #include "wektor.h"
 
 // zadanie 1
-void add1(int a, float b){
-    std::cout << a + b << '\n';
-}
-
-int add1(int a, int b){
-    return a + b;
-}
-
-std::string add1(std::string a, std::string b){
+template <typename T, typename U>
+auto add1(T a, U b){
     return a + b;
 }
 
@@ -21,20 +14,16 @@ auto add2(T x, U y, W z){
 
 int main()
 {
-    std::cout << "ZADANIE1" << '\n';
-    add1(314, 3.14f);
-    std::cout << add1(3, 4) << '\n';
-    std::cout << add1("Michal ", "Szul") << '\n';
+    std::string text1 = "Michał ";
+    std::string text2 = "Szul";
 
-    std::cout << '\n';
+    std::cout << "ZADANIE1" << '\n';
+    std::cout << add1(3, 4) << '\n';
+    std::cout << add1(text1, text2) << "\n\n";
 
     std::cout << "ZADANIE2" << '\n';
     std::cout << add2(3, 3.14, [](auto x, auto y){return x + y;}) << '\n';
-    std::string a = "Michal ";
-    std::string b = "Szul";
-    std::cout << add2(a, b, [](auto a, auto b){return a + b;}) << '\n';
-
-    std::cout << '\n';
+    std::cout << add2(text1, text2, [](auto a, auto b){return a + b;}) << "\n\n";
 
     std::cout << "ZADANIE3" << '\n';
     Wektor<int, 3> wektorInt;
@@ -47,9 +36,7 @@ int main()
         std::cout << wektorFloat[i] << '\n';
     }
 
-    std::cout << '\n';
-
-    std::cout << "ZADANIE4" << '\n';
+    std::cout << '\n' << "ZADANIE4" << '\n';
     const std::vector<float> m = {1.0f, 2.0f, 3.0f};
     const std::vector<float> n = {1.0f, 1.0f};
 
