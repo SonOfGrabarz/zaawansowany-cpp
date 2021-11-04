@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 // zadanie 5
 template <typename T, typename U>
@@ -13,7 +14,17 @@ auto add2(const T x, const U y){
     return a + b;
 }
 
-// zadnie 6
+// zadanie 6
+template <typename T, typename U>
+constexpr auto hiperszescian(T a, U b) -> decltype (pow(a, b)){
+    if (a < 0 || b < 0){
+        return -1;
+    }
+
+    else{
+        return pow(a, b);
+    }
+}
 
 int main(){
 
@@ -33,6 +44,11 @@ int main(){
 
     std::cout << add1(num_ptr1, num_ptr2) << '\n';
     std::cout << add2(first, second) << "\n\n";
+
+    // zadanie 6
+    std::cout << "ZADANIE6" << '\n';
+    std::cout << "HIPERSZESCIAN(5 BOKOW, 6 WYMIAROW): " << hiperszescian(6.5f, 7) << "\n\n";
+
 
     return 0;
 }
