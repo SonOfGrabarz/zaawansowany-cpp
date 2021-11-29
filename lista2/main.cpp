@@ -5,12 +5,14 @@
 template <typename T, typename U>
 auto add1(T *a, U *b) {
     // przekazanie przez wskazniki
+    std::cout << "przez wskazniki: ";
     return *a + *b;
 }
 
-template <typename T, typename U>
-auto add2(const T x, const U y) {
+template <>
+auto add1<const char>(const char* x, const char* y) {
     // laczenie tekstow przekazanych jako const char*
+    std::cout << "przez const char*: ";
     std::string a = x;
     std::string b = y;
     return a + b;
@@ -47,11 +49,13 @@ int main(){
 
     // zadanie 5
     std::cout << "ZADANIE5" << '\n';
-    int num1, num2;
-    int *num_ptr1, *num_ptr2;
+    int num1;
+    float num2;
+    int *num_ptr1;
+    float *num_ptr2;
 
     num1 = 21;
-    num2 = 11;
+    num2 = 1.1;
 
     const char* first = "M";
     const char* second = "S";
@@ -60,15 +64,18 @@ int main(){
     num_ptr2 = &num2;
 
     std::cout << add1(num_ptr1, num_ptr2) << '\n';
-    std::cout << add2(first, second) << "\n\n";
+    std::cout << add1(first, second) << "\n\n";
 
     // zadanie 6
     std::cout << "ZADANIE6" << '\n';
-    std::cout << "HIPERSZESCIAN(5 BOKOW, 6 WYMIAROW): " << hiperszescian(6.5f, 7) << "\n\n";
+    std::cout << "HIPERSZESCIAN(6 BOKOW, 7 WYMIAROW): " << hiperszescian(6, 7) << "\n\n";
 
     // zadanie 7
     std::cout << "ZADANIE7" << '\n';
-    std::cout << add(1, 1.0, 1.0f) << '\n';
+    int i = 1;
+    double j = 1.0;
+    float k = 1.0f;
+    std::cout << add(i, j, k) << '\n';
 
 
     return 0;
