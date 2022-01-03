@@ -7,24 +7,28 @@
 // zad 1
 // funkcja zwracajaca identyfikator watku
 int getThreadId() {
-    static int id = 0;
+    static std::mutex m;
+    static int count = 0;
+    thread_local int id = ++count;
+    // static int id = 0;
     return id++;
 }
 
 // zad 2
-std::mutex m;
 void getText(std::string text) {
+    static std::mutex m;
     std::lock_guard <std::mutex> lock(m);
     std::cout << "Thread " << getThreadId() << ": " + text << '\n';
 }
 
 // zad 3
-int count = 0;
 void getAsync(std::launch mode) {
+    static int count = 0;
     if (count < 3) {
         count++;
         std::future <void> f = async(mode, getAsync, mode);
         getText("async x" + std::to_string(count));
+        f.get();
     }
 }
 
